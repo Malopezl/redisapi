@@ -4,6 +4,7 @@
   "description": "Curso de Node.js: Autenticación, Microservicios y Redis",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon api/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,7 +18,8 @@
   },
   "homepage": "https://github.com/Malopezl/redisapi#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0"
   },
   "devDependencies": {
     "express-jsdoc-swagger": "^1.8.0",

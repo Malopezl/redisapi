@@ -8,7 +8,7 @@ const router = express.Router();
 /* Routes */
 
 /**
- * GET /api/v1/user
+ * GET /api/user
  * @summary Get a user list
  * @tags user
  * @return {object} 200 - success response - application/json
@@ -33,7 +33,7 @@ const router = express.Router();
  */
 router.get("/", list);
 /**
- * GET /api/v1/user/{id}
+ * GET /api/user/{id}
  * @summary Get an specific user
  * @tags user
  * @param {string} id.query.required - User uniqueID param
@@ -57,7 +57,7 @@ router.get("/", list);
  */
 router.get("/:id", get);
 /**
- * POST /api/v1/user
+ * POST /api/user
  * @summary Create user
  * @tags user
  * @param {object} request.body.required - new user info
@@ -72,10 +72,7 @@ router.get("/:id", get);
  * {
  *  "error": false,
  *  "status": 200,
- *  "body": {
- *      "id": "1",
- *      "name": "Carlos"
- *   }
+ *  "body": "OK"
  * }
  * @example response - 500 - Internal server error example
  * {
@@ -86,7 +83,7 @@ router.get("/:id", get);
  */
 router.post("/", upsert);
 /**
- * PUT /api/v1/user
+ * PUT /api/user
  * @summary Update user
  * @tags user
  * @param {object} request.body.required - user info
