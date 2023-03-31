@@ -1,5 +1,6 @@
 const express = require("express");
 
+const secure = require("./secure");
 const response = require("../../../network/response");
 const Controller = require("./index");
 
@@ -110,7 +111,7 @@ router.post("/", upsert);
  *  "body": "Internal Server Error"
  * }
  */
-router.put("/", upsert);
+router.put("/", secure("update"), upsert);
 
 /* Internal functions */
 function list(req, res) {
