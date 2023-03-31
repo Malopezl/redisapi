@@ -30,14 +30,12 @@ const router = express.Router();
  *  "body": "Informacion invalida"
  * }
  */
-router.post("/login", (req, res) => {
+router.post("/login", (req, res, next) => {
   Controller.login(req.body.username, req.body.password)
     .then((token) => {
       response.success(req, res, token, 200);
     })
-    .catch((e) => {
-      response.error(req, res, "Informacion invalida", 400);
-    });
+    .catch(next);
 });
 
 module.exports = router;
