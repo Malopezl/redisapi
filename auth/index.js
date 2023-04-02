@@ -21,6 +21,10 @@ const check = {
       throw error("No tienes permisos para hacer esto", 401);
     }
   },
+
+  logged: (req) => {
+    return decodeHeader(req);
+  },
 };
 
 function getToken(auth) {

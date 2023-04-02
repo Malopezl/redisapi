@@ -80,7 +80,11 @@ function update(table, data) {
 }
 
 async function upsert(table, data) {
-  const getData = await get(table, data.id);
+  let getData = [];
+  if (data.id) {
+    getData = await get(table, data.id);
+  }
+
   console.log(getData);
   if (getData.length === 0) {
     return insert(table, data);
@@ -89,12 +93,23 @@ async function upsert(table, data) {
   }
 }
 
-function query(table, query) {
+function query(table, query, join) {
+  let joinQuery = "";
+  if (join) {
+    const key = Object.keys(join)[0];
+    const val = join[key];
+    joinQuery = `JOIN ${key} ON ${table}.${val} = ${key}.id`;
+  }
+
   return new Promise((resolve, reject) => {
-    connection.query(`SELECT * FROM ${table} WHERE ?`, query, (err, res) => {
-      if (err) return reject(err);
-      resolve(res[0] || null);
-    });
+    connection.query(
+      `SELECT * FROM ${table} ${joinQuery} WHERE ${table}.?`,
+      query,
+      (err, res) => {
+        if (err) return reject(err);
+        resolve(res[0] || null);
+      }
+    );
   });
 }
 
