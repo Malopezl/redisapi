@@ -43,7 +43,7 @@ module.exports = function (injectedStore) {
 
   async function following(user) {
     const join = {};
-    join[TABLE] = "user_to";
+    join[TABLE] = "user_to"; //We want to generate something like { user: user_to }
     const query = { user_from: user };
     return await store.query(TABLE + "_follow", query, join);
   }

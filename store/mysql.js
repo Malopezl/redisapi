@@ -85,7 +85,6 @@ async function upsert(table, data) {
     getData = await get(table, data.id);
   }
 
-  console.log(getData);
   if (getData.length === 0) {
     return insert(table, data);
   } else {

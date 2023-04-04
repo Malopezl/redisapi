@@ -34,8 +34,56 @@ const router = express.Router();
  */
 router.get("/", list);
 
+/**
+ * GET /api/user/{id}/following
+ * @summary Get a user following list
+ * @tags user
+ * @param {String} id.query.required - User uniqueID param
+ * @return {object} 200 - success response - application/json
+ * @return {object} 500 - Internal server error
+ * @example response - 200 - success response example
+ * {
+ *  "error": false,
+ *  "status": 200,
+ *  "body": [
+ *      {
+ *          "user_from": "1234",
+ *          "user_to": "123",
+ *          "id": "123",
+ *          "username": "luis",
+ *          "name": "Luis"
+ *      }
+ *   ]
+ * }
+ * @example response - 500 - Internal server error example
+ * {
+ *  "error": true,
+ *  "status": 500,
+ *  "body": "Internal Server Error"
+ * }
+ */
 router.get("/:id/following", following);
 
+/**
+ * POST /api/user/follow/{id}
+ * @summary Follow user
+ * @tags user
+ * @param {String} id.query.required - user to follow
+ * @return {object} 200 - success response - application/json
+ * @return {object} 500 - Internal server error
+ * @example response - 200 - success response example
+ * {
+ *  "error": false,
+ *  "status": 200,
+ *  "body": "OK"
+ * }
+ * @example response - 500 - Internal server error example
+ * {
+ *  "error": true,
+ *  "status": 500,
+ *  "body": "Internal Server Error"
+ * }
+ */
 router.post("/follow/:id", secure("follow"), follow);
 
 /**
