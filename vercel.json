@@ -1,6 +1,18 @@
 {
     "version": 2,
-    "name": "redisapi",
+    "env": {
+        "NODE_ENV": "production",
+        "MYSQL_HOST": "db4free.net",
+        "MYSQL_USER": "pruebaredisapi1",
+        "MYSQL_PASS": "/2/Gaio^cxNOSB6k",
+        "MYSQL_DB": "testredisdb1",
+        "MYSQL_SRV_HOST": "db4free.net",
+        "MYSQL_SRV_PORT": "3001",
+        "POST_PORT": "3002",
+        "API_PORT": "3000",
+        "REMOTE_DB": "false",
+        "JWT_SECRET": "notasecret!"
+    },
     "builds": [
         {
             "src": "api/index.js",

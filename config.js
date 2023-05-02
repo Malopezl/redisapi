@@ -9,16 +9,16 @@ module.exports = {
     port: process.env.POST_PORT || 3002,
   },
   jwt: {
-    secret: process.env.JWT_SECRET || "notasecret!",
+    secret: process.env.JWT_SECRET || "",
   },
   mysql: {
-    host: process.env.MYSQL_HOST || "localhost",
-    user: process.env.MYSQL_USER || "root",
-    password: process.env.MYSQL_PASS || "root",
-    database: process.env.MYSQL_DB || "test_db",
+    host: process.env.MYSQL_HOST || "",
+    user: process.env.MYSQL_USER || "",
+    password: process.env.MYSQL_PASS || "",
+    database: process.env.MYSQL_DB || "",
   },
   mysqlService: {
-    host: process.env.MYSQL_SRV_HOST || "localhost",
+    host: process.env.MYSQL_SRV_HOST || "",
     port: process.env.MYSQL_SRV_PORT || 3001,
   },
 };
