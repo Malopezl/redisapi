@@ -26,8 +26,14 @@ module.exports = function (injectedStore, injectedCache) {
     return users;
   }
 
-  function get(id) {
-    return store.get(TABLE, id);
+  async function get(id) {
+    let user = await cache.get(TABLE, id);
+
+    if (!user) {
+      user = await store.get(TABLE, id);
+      cache.upsert(TABLE, user);
+    }
+    return user;
   }
 
   async function upsert(body) {
@@ -44,6 +50,7 @@ module.exports = function (injectedStore, injectedCache) {
         password: body.password,
       });
     }
+    cache.upsert(TABLE, user);
     return store.upsert(TABLE, user);
   }
 
