@@ -10,12 +10,20 @@ Este proyecto utiliza los siguientes paquetes:
 - [express-jsdoc-swagger] - Document your express endpoints using swagger OpenAPI 3 Specification.
 - [jsonwebtoken] - JSON Web Token implementation for Node.js
 - [bcrypt] - A library to help you hash passwords.
+- [redis] - An open source (BSD licensed), in-memory data structure store, used as a database, cache, and message broker.
 
 ## Installation
 
 Este proyecto requiere [Node.js](https://nodejs.org/) v16.18.0 para correr.
 
-Para ejecutar este proyecto solo se debe correr el archivo index.js dentro de la carpeta api.
+### Este proyecto esta dividido en varias partes.
+
+- Para la administracion de usuarios y autenticacion se debe ejecutar el archivo index.js de la carpeta api.
+- Para los posts se debe ejecutar el archivo index.js de la carpeta post.
+- Para la conexion a DB se debe ejecutar el archivo index.js de la carpeta mysql.
+- Para el uso de cache se debe ejecutar el archivo index.js de la carpeta cache.
+
+| Tomar en cuenta los puertos utilizados dentro del archivo config.js de la carpeta raiz.
 
 ## License
 
@@ -28,3 +36,4 @@ MIT
 [express-jsdoc-swagger]: https://brikev.github.io/express-jsdoc-swagger-docs/#/
 [jsonwebtoken]: https://www.npmjs.com/package/jsonwebtoken
 [bcrypt]: https://www.npmjs.com/package/bcrypt
+[redis]: https://redis.com/
